@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_splash">
+    <fragment
+        android:id="@+id/fragment_splash"
+        android:name="com.example.quizz_app.views.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_fragment_splash_to_fragment_sign_up"
+            app:destination="@id/fragment_sign_up" />
+        <action
+            android:id="@+id/action_fragment_splash_to_fragment_list"
+            app:destination="@id/fragment_list" />
+        <action
+            android:id="@+id/action_fragment_splash_to_fragment_sign_in"
+            app:destination="@id/fragment_sign_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_details"
+        android:name="com.example.quizz_app.views.DetailFragment"
+        android:label="fragment_details2"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_fragment_details_to_fragment_quiz"
+            app:destination="@id/fragment_quiz" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_list"
+        android:name="com.example.quizz_app.views.ListFragment"
+        android:label="fragment_list2"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_fragment_list_to_fragment_details"
+            app:destination="@id/fragment_details" />
+        <action
+            android:id="@+id/action_fragment_list_to_fragment_sign_in"
+            app:destination="@id/fragment_sign_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_quiz"
+        android:name="com.example.quizz_app.views.QuizFragment"
+        android:label="fragment_quiz2"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_fragment_quiz_to_fragment_result"
+            app:destination="@id/fragment_result" />
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="totalQuestionsCount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_fragment_quiz_to_fragment_list"
+            app:destination="@id/fragment_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_result"
+        android:name="com.example.quizz_app.views.ResultFragment"
+        android:label="fragment_result2"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_fragment_result_to_fragment_list"
+            app:destination="@id/fragment_list" />
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_sign_in"
+        android:name="com.example.quizz_app.views.SignInFragment"
+        android:label="fragment_sign_in2"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_fragment_sign_in_to_fragment_sign_up"
+            app:destination="@id/fragment_sign_up" />
+        <action
+            android:id="@+id/action_fragment_sign_in_to_fragment_list"
+            app:destination="@id/fragment_list" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_sign_up"
+        android:name="com.example.quizz_app.views.SignUpFragment"
+        android:label="fragment_sign_up2"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_fragment_sign_up_to_fragment_sign_in"
+            app:destination="@id/fragment_sign_in" />
+    </fragment>
+</navigation>
